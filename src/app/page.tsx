@@ -351,18 +351,19 @@ function TrustSections({
     </h2>
           <div className="mt-6 sm:mt-10 grid gap-3 sm:gap-6 md:grid-cols-3">
             {[
-              ['Ошибка в рекламе', '−300 000 ₽'],
-              ['Ошибка в найме', '−2 месяца'],
-              ['Ошибка в стратегии', '−миллионы ₽'],
-            ].map(([t, v]) => (
-              <div key={t} className="rounded-2xl border border-white/10 bg-[#0b1120] p-4 sm:p-6 overflow-hidden">
-                <div className="text-[11px] sm:text-sm uppercase tracking-[0.14em] sm:tracking-[0.18em] text-orange-300 break-words">
-  {t}
-</div>
-                <div className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold break-words">
-  {v}
-</div>
-            ))}
+  ['Ошибка в рекламе', '−300 000 ₽'],
+  ['Ошибка в найме', '−2 месяца'],
+  ['Ошибка в стратегии', '−миллионы ₽'],
+].map(([t, v]) => (
+  <div key={t} className="rounded-2xl border border-white/10 bg-[#0b1120] p-4 sm:p-6 overflow-hidden">
+    <div className="text-[11px] sm:text-sm uppercase tracking-[0.14em] sm:tracking-[0.18em] text-orange-300 break-words">
+      {t}
+    </div>
+    <div className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold break-words">
+      {v}
+    </div>
+  </div>
+))}
           </div>
         </div>
       </section>
