@@ -602,8 +602,8 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
 }
 
 export default function AIDvoynikLanding() {
-  const telegramBase = 'https://t.me/maxkotelnikov';
-  const telegramUrl = 'https://t.me/maxkotelnikov?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20про%20AI-двойник%20предпринимателя%20и%20пилотный%20запуск.';
+  const telegramBase = 'https://t.me/ai_dvoynik_business_bot';
+const telegramUrl = 'https://t.me/ai_dvoynik_business_bot?start=site';
   const navItems: NavItem[] = [
     { label: 'Как работает', href: '#how-it-works' },
     { label: 'Стадии', href: '#stages' },
