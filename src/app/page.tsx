@@ -22,7 +22,7 @@ const card =
   'bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-[0_10px_40px_rgba(34,211,238,0.15)]';
 const cardDark =
   'bg-[#0c1122] border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-[0_10px_40px_rgba(34,211,238,0.15)]';
-const section = 'max-w-7xl mx-auto px-6 py-20';
+const section = 'max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20';
 
 type NavItem = { label: string; href: string };
 type Benefit = { icon: React.ComponentType<{ className?: string }>; text: string };
@@ -79,7 +79,7 @@ function HeaderHero({ telegramUrl, navItems }: { telegramUrl: string; navItems: 
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#070b1a]/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-4">
           <a href="#top" className="flex items-center gap-3 text-white">
             <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/10 p-2">
               <Bot className="h-5 w-5 text-cyan-300" />
@@ -90,7 +90,7 @@ function HeaderHero({ telegramUrl, navItems }: { telegramUrl: string; navItems: 
             </div>
           </a>
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-4 xl:gap-6 lg:flex">
             {navItems.map((n) => (
               <a key={n.href} href={n.href} className="text-sm text-white/70 transition hover:text-white">
                 {n.label}
@@ -114,24 +114,24 @@ function HeaderHero({ telegramUrl, navItems }: { telegramUrl: string; navItems: 
         </div>
       </header>
 
-      <section className="relative overflow-hidden border-b border-white/10">
+      <section className="relative overflow-hidden border-b border-white/10 px-4 sm:px-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(88,80,236,0.26),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(34,211,238,0.2),_transparent_30%),radial-gradient(circle_at_bottom_center,_rgba(249,115,22,0.12),_transparent_35%)]" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[1.05fr_.95fr]">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-0 sm:px-6 py-14 sm:py-20 lg:py-24 lg:grid-cols-[1.05fr_.95fr]">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm uppercase tracking-[0.18em] text-cyan-300">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-[11px] sm:text-sm uppercase tracking-[0.18em] text-cyan-300">
               <Bot className="h-4 w-4" />AI-двойник предпринимателя
             </div>
-            <h1 className="max-w-5xl text-5xl font-bold leading-[1.02] md:text-7xl">
+            <h1 className="max-w-5xl text-4xl sm:text-5xl font-bold leading-[1.02] md:text-7xl">
               Система, которая превращает <span className="text-orange-400">хаотичные решения в предсказуемый рост прибыли</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
+            <p className="mt-5 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/70">
               AI-двойник анализирует контекст бизнеса, оценивает риски, сравнивает сценарии и помогает выбирать более сильные решения до того, как ошибка начнет стоить денег.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
               <a href="#pilot" className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-400 px-7 py-3.5 font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)] hover:scale-[1.04]">
                 Запустить пилот
               </a>
-              <a href="#cases" className="rounded-xl border border-white/20 bg-white/5 px-6 py-3">
+              <a href="#cases" className="rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-center">
                 Смотреть кейсы
               </a>
               <a
@@ -143,7 +143,7 @@ function HeaderHero({ telegramUrl, navItems }: { telegramUrl: string; navItems: 
                 <MessageCircle className="h-4 w-4" />Обсудить внедрение
               </a>
             </div>
-            <div className="mt-10 grid max-w-3xl grid-cols-2 gap-4 md:grid-cols-3">
+            <div className="mt-8 grid max-w-3xl grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
               {[
                 ['10–15', 'решений анализируем'],
                 ['50+', 'параметров анализа'],
@@ -157,8 +157,8 @@ function HeaderHero({ telegramUrl, navItems }: { telegramUrl: string; navItems: 
             </div>
           </div>
 
-          <div className="flex items-center justify-center">
-            <div className="relative mx-auto h-[320px] w-[320px]">
+          <div className="mt-4 flex items-center justify-center lg:mt-0">
+            <div className="relative mx-auto h-[260px] w-[260px] sm:h-[320px] sm:w-[320px]">
               <div className="absolute inset-0 animate-pulse rounded-full bg-cyan-400/10 blur-3xl" />
               <div className="absolute inset-6 rounded-full border border-cyan-400/20" />
               <div className="absolute inset-0 rounded-full border border-fuchsia-400/15" />
@@ -400,8 +400,8 @@ function TrustSections({
 
 function CasesSection({ telegramUrl }: { telegramUrl: string }) {
   return (
-    <section id="cases" className="bg-white/[0.02] py-20">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="cases" className="bg-white/[0.02] py-14 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-4xl font-bold">Кейсы</h2>
@@ -410,7 +410,7 @@ function CasesSection({ telegramUrl }: { telegramUrl: string }) {
             </p>
           </div>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
           {cases.map(([title, result, meta, extra, period]) => (
             <div key={title} className={`${cardDark} flex min-h-[220px] flex-col`}>
               <div className="mb-2 flex items-center justify-between gap-3">
@@ -500,19 +500,19 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
       </div>
     </div>
 
-    <div className="relative grid items-start gap-5 md:grid-cols-[1fr_300px]">
+    <div className="relative grid items-start gap-4 lg:gap-5 md:grid-cols-[1fr_300px]">
       <motion.div
   initial={{ opacity: 0, scale: 0.96, y: 20 }}
   whileInView={{ opacity: 1, scale: 1, y: 0 }}
   transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
   viewport={{ once: true, amount: 0.25 }}
-  className="relative flex h-[520px] items-start justify-center overflow-visible"
+  className="relative mt-4 flex h-[320px] sm:h-[420px] lg:h-[520px] items-start justify-center overflow-visible"
 >
 
         <img
           src="/founder.png"
           alt="Максим Котельников"
-          className="relative z-10 h-full object-contain scale-[2] -translate-y-[180px] translate-x-[160px] drop-shadow-[0_0_40px_rgba(34,211,238,0.2)]"
+          className="relative z-10 h-[90%] sm:h-full object-contain scale-[1.15] sm:scale-[1.45] lg:scale-[2] -translate-y-[20px] sm:-translate-y-[80px] lg:-translate-y-[180px] translate-x-[10px] sm:translate-x-[60px] lg:translate-x-[160px] drop-shadow-[0_0_40px_rgba(34,211,238,0.2)]"
         />
       </motion.div>
 
@@ -521,7 +521,7 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.65, delay: 0.2, ease: 'easeOut' }}
   viewport={{ once: true, amount: 0.25 }}
-  className="relative z-30 max-w-[420px] self-start -ml-[150px] mt-[200px]"
+  className="relative z-30 max-w-full sm:max-w-[360px] lg:max-w-[420px] self-start ml-0 md:-ml-[70px] lg:-ml-[150px] mt-4 sm:mt-[80px] lg:mt-[200px]"
 >
   <div className="absolute -inset-3 rounded-[28px] bg-cyan-400/10 blur-2xl" />
 
@@ -544,12 +544,12 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
   </motion.div>
 </section>
 
-      <section id="pilot" className="mx-auto max-w-5xl px-6 py-20 text-center">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-10">
+      <section id="pilot" className="mx-auto max-w-5xl px-4 sm:px-6 py-14 sm:py-20 text-center">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-10">
           <div className="text-sm uppercase tracking-[0.18em] text-orange-300">Пилотный запуск</div>
           <h2 className="mt-3 text-4xl font-bold">Старт AI-двойника</h2>
           <div className="mt-6 text-5xl font-bold text-orange-300">30 000 ₽</div>
-          <form onSubmit={handleFormSubmit} className="mt-10 grid gap-4 md:grid-cols-2">
+          <form onSubmit={handleFormSubmit} className="mt-8 sm:mt-10 grid gap-4 md:grid-cols-2">
             <input
               type="text"
               placeholder="Имя"
