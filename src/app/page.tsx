@@ -237,31 +237,37 @@ function EngineBlock() {
       </section>
 
       <section className={section}>
-        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-[#0b1120] to-[#10182f] p-8 md:p-10">
-          <div className="grid items-center gap-10 lg:grid-cols-[.9fr_1.1fr]">
+  <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0b1120] to-[#10182f] p-5 sm:p-8 md:p-10">
+    <div className="grid items-start gap-6 sm:gap-8 lg:gap-10 lg:grid-cols-[.9fr_1.1fr]">
             <div>
-              <h2 className="mt-3 text-4xl font-bold">Decision Engine для предпринимателя</h2>
-              <p className="mt-4 max-w-xl leading-8 text-white/70">
+              <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight break-words">
+  Decision Engine для предпринимателя
+</h2>
+              <p className="mt-4 max-w-xl text-sm sm:text-base leading-6 sm:leading-8 text-white/70">
                 Это система, которая помогает понять: какое решение даст лучший результат, какой риск оно несет и сколько денег можно потерять, если выбрать слабый сценарий.
               </p>
-              <div className="mt-8 grid gap-4">
+              <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-4">
                 {['Видит связи между решениями и метриками', 'Сравнивает несколько сценариев роста', 'Помогает действовать системно'].map((t) => (
-                  <div key={t} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-white/85">
+                  <div key={t} className="rounded-2xl border border-white/10 bg-white/5 p-3 sm:p-4 text-sm sm:text-base text-white/85 break-words">
                     {t}
                   </div>
                 ))}
               </div>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
               {[
                 ['Сигналы', 'Продажи, реклама, заявки'],
                 ['Риски', 'Цена ошибки и слабые места'],
                 ['Сценарии', 'Варианты роста и защиты прибыли'],
                 ['Решение', 'Лучший следующий шаг'],
               ].map(([t, s]) => (
-                <div key={t} className={`${cardDark} p-5`}>
-                  <div className="text-sm uppercase tracking-[0.18em] text-cyan-300">{t}</div>
-                  <div className="mt-3 text-sm leading-6 text-white/70">{s}</div>
+                <div key={t} className={`${cardDark} p-3 sm:p-5 overflow-hidden`}>
+                  <div className="text-[11px] sm:text-sm uppercase tracking-[0.14em] sm:tracking-[0.18em] text-cyan-300 break-words">
+  {t}
+</div>
+                  <div className="mt-2 sm:mt-3 text-xs sm:text-sm leading-5 sm:leading-6 text-white/70 break-words">
+  {s}
+</div>
                 </div>
               ))}
             </div>
@@ -339,18 +345,23 @@ function TrustSections({
       </section>
 
       <section className={section}>
-        <div className="rounded-3xl border border-orange-400/15 bg-gradient-to-br from-orange-400/10 to-[#0d1328] p-8 md:p-10">
-          <h2 className="mt-3 text-4xl font-bold">Сколько стоит неправильное решение предпринимателя</h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+  <div className="overflow-hidden rounded-3xl border border-orange-400/15 bg-gradient-to-br from-orange-400/10 to-[#0d1328] p-5 sm:p-8 md:p-10">
+    <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight break-words">
+      Сколько стоит неправильное решение предпринимателя
+    </h2>
+          <div className="mt-6 sm:mt-10 grid gap-3 sm:gap-6 md:grid-cols-3">
             {[
               ['Ошибка в рекламе', '−300 000 ₽'],
               ['Ошибка в найме', '−2 месяца'],
               ['Ошибка в стратегии', '−миллионы ₽'],
             ].map(([t, v]) => (
-              <div key={t} className="rounded-2xl border border-white/10 bg-[#0b1120] p-6">
-                <div className="text-sm uppercase tracking-[0.18em] text-orange-300">{t}</div>
-                <div className="mt-4 text-3xl font-bold">{v}</div>
-              </div>
+              <div key={t} className="rounded-2xl border border-white/10 bg-[#0b1120] p-4 sm:p-6 overflow-hidden">
+                <div className="text-[11px] sm:text-sm uppercase tracking-[0.14em] sm:tracking-[0.18em] text-orange-300 break-words">
+  {t}
+</div>
+                <div className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-bold break-words">
+  {v}
+</div>
             ))}
           </div>
         </div>
