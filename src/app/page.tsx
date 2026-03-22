@@ -70,7 +70,7 @@ const cases = [
 ] as const;
 
 const reviews = [
-  ['Дмитрий Соколов', 'Маркетплейс', 'AI показал, где терялись деньги в рекламе. Исправили ставки и карточки — продажи пошли вверх.'],
+  ['Дмитрий С.', 'Маркетплейс', 'AI показал, где терялись деньги в рекламе. Исправили ставки и карточки — продажи пошли вверх.'],
   ['Александр К.', 'Автосервис', 'Система подсветила слабые места в загрузке мастеров и потери в заявках.'],
   ['Екатерина М.', 'Онлайн-школа', 'AI разобрал воронку и показал, где теряются заявки. После изменений конверсия выросла.'],
 ] as const;
@@ -581,25 +581,27 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
           <div className="mt-6 text-5xl font-bold text-orange-300">30 000 ₽</div>
           <form onSubmit={handleFormSubmit} className="mt-8 sm:mt-10 grid gap-4 md:grid-cols-2">
             <input
-              type="text"
-              placeholder="Имя"
-              value={formData.name}
-              onChange={handleInputChange('name')}
-              className="rounded-xl border border-white/10 bg-[#111933] px-4 py-3"
-            />
-            <input
-              type="text"
-              placeholder="Telegram или телефон"
-              value={formData.contact}
-              onChange={handleInputChange('contact')}
-              className="rounded-xl border border-white/10 bg-[#111933] px-4 py-3"
-            />
-            <textarea
-              placeholder="Коротко о бизнесе"
-              value={formData.request}
-              onChange={handleInputChange('request')}
-              className="rounded-xl border border-white/10 bg-[#111933] px-4 py-3 md:col-span-2"
-            />
+  type="text"
+  placeholder="Имя"
+  value={formData.name}
+  onChange={handleInputChange('name')}
+  className="rounded-xl border border-white/10 bg-[#111933] px-4 py-3 text-white placeholder:text-white/50 focus:placeholder-transparent"
+/>
+
+<input
+  type="text"
+  placeholder="Telegram или телефон"
+  value={formData.contact}
+  onChange={handleInputChange('contact')}
+  className="rounded-xl border border-white/10 bg-[#111933] px-4 py-3 text-white placeholder:text-white/50 focus:placeholder-transparent"
+/>
+
+<textarea
+  placeholder="Коротко о бизнесе"
+  value={formData.request}
+  onChange={handleInputChange('request')}
+  className="rounded-xl border border-white/10 bg-[#111933] px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:border-cyan-400 md:col-span-2"
+/>
             <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-300 px-6 py-4 font-semibold text-black">
               Отправить заявку <ChevronRight className="h-4 w-4" />
             </button>
