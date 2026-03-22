@@ -512,7 +512,7 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
       </div>
     </div>
 
-    <div className="relative grid items-start gap-4 lg:gap-5 md:grid-cols-[1fr_300px]">
+    <div className="relative flex flex-col md:grid md:grid-cols-[1fr_300px] items-start gap-4 lg:gap-5">
       <motion.div
   initial={{ opacity: 0, scale: 0.96, y: 20 }}
   whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -533,7 +533,20 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.65, delay: 0.2, ease: 'easeOut' }}
   viewport={{ once: true, amount: 0.25 }}
-  className="relative z-30 max-w-full sm:max-w-[360px] lg:max-w-[420px] self-start ml-0 md:-ml-[70px] lg:-ml-[150px] mt-4 sm:mt-[80px] lg:mt-[200px]"
+  className="
+absolute md:absolute
+z-30
+
+w-[92%] sm:w-[85%] md:w-[380px] lg:w-[420px]
+
+left-1/2 -translate-x-1/2
+top-[60%] sm:top-[65%]
+
+md:left-auto md:translate-x-0
+md:right-[-40px] lg:right-[30px]
+md:top-[210px]
+
+"
 >
   <div className="absolute -inset-3 rounded-[28px] bg-cyan-400/10 blur-2xl" />
 
