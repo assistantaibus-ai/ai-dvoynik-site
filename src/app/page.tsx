@@ -512,21 +512,33 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
       </div>
     </div>
 
-    <div className="relative flex flex-col md:grid md:grid-cols-[1fr_300px] items-start gap-4 lg:gap-5">
+    <div className="relative w-full min-h-[760px] sm:min-h-[900px] md:min-h-0 md:grid md:grid-cols-[1fr_300px] items-start gap-4 lg:gap-5">
       <motion.div
   initial={{ opacity: 0, scale: 0.96, y: 20 }}
   whileInView={{ opacity: 1, scale: 1, y: 0 }}
   transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
   viewport={{ once: true, amount: 0.25 }}
-  className="relative mt-4 flex h-[320px] sm:h-[420px] lg:h-[520px] items-start justify-center overflow-visible"
+  className="
+    absolute bottom-0 left-1/2 z-10 w-[92%] max-w-[420px] -translate-x-1/2
+    flex items-end justify-center overflow-visible
+    md:relative md:bottom-auto md:left-auto md:w-auto md:max-w-none md:translate-x-0
+    md:mt-4 md:h-[420px] lg:h-[520px]
+    md:items-start md:justify-center
+  "
 >
-
-        <img
-          src="/founder.png"
-          alt="Максим Котельников"
-          className="relative z-10 h-[90%] sm:h-full object-contain scale-[1.15] sm:scale-[1.45] lg:scale-[2] -translate-y-[20px] sm:-translate-y-[80px] lg:-translate-y-[180px] translate-x-[10px] sm:translate-x-[60px] lg:translate-x-[160px] drop-shadow-[0_0_40px_rgba(34,211,238,0.2)]"
-        />
-      </motion.div>
+  <img
+    src="/founder.png"
+    alt="Максим Котельников"
+    className="
+      w-full object-contain
+      md:relative md:z-10 md:h-full md:w-auto
+      md:scale-[1.45] lg:scale-[2]
+      md:-translate-y-[80px] lg:-translate-y-[180px]
+      md:translate-x-[60px] lg:translate-x-[160px]
+      drop-shadow-[0_0_40px_rgba(34,211,238,0.2)]
+    "
+  />
+</motion.div>
 
      <motion.div
   initial={{ opacity: 0, x: 20 }}
@@ -534,19 +546,12 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
   transition={{ duration: 0.65, delay: 0.2, ease: 'easeOut' }}
   viewport={{ once: true, amount: 0.25 }}
   className="
-absolute md:absolute
-z-30
-
-w-[92%] sm:w-[85%] md:w-[380px] lg:w-[420px]
-
-left-1/2 -translate-x-1/2
-top-[60%] sm:top-[65%]
-
-md:left-auto md:translate-x-0
-md:right-[-40px] lg:right-[30px]
-md:top-[210px]
-
-"
+    absolute bottom-0 left-1/2 z-30 w-[92%] max-w-[420px] -translate-x-1/2
+    md:absolute md:bottom-auto md:left-auto md:translate-x-0
+    md:w-[380px] lg:w-[420px]
+    md:right-[-40px] lg:right-[30px]
+    md:top-[210px]
+  "
 >
   <div className="absolute -inset-3 rounded-[28px] bg-cyan-400/10 blur-2xl" />
 
