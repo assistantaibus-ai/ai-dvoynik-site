@@ -512,7 +512,7 @@ function FounderCTA({ telegramUrl, formData, handleInputChange, handleFormSubmit
       </div>
     </div>
 
-    <div className="relative w-full min-h-[760px] sm:min-h-[900px] md:min-h-0 md:grid md:grid-cols-[1fr_300px] items-start gap-4 lg:gap-5">
+    <div className="relative w-full min-h-[520px] sm:min-h-[620px] md:min-h-0 md:grid md:grid-cols-[1fr_300px] items-start gap-4 lg:gap-5">
       <motion.div
   initial={{ opacity: 0, scale: 0.96, y: 20 }}
   whileInView={{ opacity: 1, scale: 1, y: 0 }}
