@@ -372,6 +372,7 @@ function HeaderHero({
             </a>
             <a
               href="#pilot"
+onClick={() => reachGoal('pilot_click', { place: 'hero' })}
               className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-400 px-5 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(249,115,22,0.6)]"
             >
               Запустить пилот
@@ -379,12 +380,15 @@ function HeaderHero({
           </div>
 
           <button
-            type="button"
-            onClick={onOpenMenu}
-            className="inline-flex rounded-xl border border-white/10 bg-white/5 p-2 text-white lg:hidden"
-          >
-            <Menu className="h-5 w-5" />
-          </button>
+  type="button"
+  onClick={() => {
+    reachGoal('mobile_menu_open');
+    onOpenMenu();
+  }}
+  className="inline-flex rounded-xl border border-white/10 bg-white/5 p-2 text-white lg:hidden"
+>
+  <Menu className="h-5 w-5" />
+</button>
         </div>
       </header>
 
@@ -436,6 +440,7 @@ function HeaderHero({
 
               <a
                 href="#cases"
+onClick={() => reachGoal('cases_click', { place: 'hero' })}
                 className="rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-center"
               >
                 Смотреть кейсы
@@ -445,6 +450,7 @@ function HeaderHero({
                 href={telegramUrl}
                 target="_blank"
                 rel="noreferrer"
+ onClick={() => reachGoal('telegram_click', { place: 'hero' })}
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-400/20 bg-cyan-400/10 px-7 py-3.5 font-semibold text-cyan-300 transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]"
               >
                 <MessageCircle className="h-4 w-4" />
@@ -941,6 +947,7 @@ function PricingSection({ telegramUrl }: { telegramUrl: string }) {
               href={telegramUrl}
               target="_blank"
               rel="noreferrer"
+onClick={() => reachGoal('pricing_click', { plan: plan.name })}
               className={`mt-8 inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r ${plan.accent} px-5 py-3.5 font-semibold text-black`}
             >
               Обсудить формат
@@ -1009,6 +1016,7 @@ function CasesSection({ telegramUrl }: { telegramUrl: string }) {
             href={telegramUrl}
             target="_blank"
             rel="noreferrer"
+onClick={() => reachGoal('case_telegram_click')}
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-300 px-6 py-3 font-semibold text-slate-950"
           >
             <MessageCircle className="h-4 w-4" />
@@ -1037,10 +1045,15 @@ function FAQAccordion() {
               className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]"
             >
               <button
-                type="button"
-                onClick={() => setOpenIndex(open ? null : index)}
-                className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left sm:px-6"
-              >
+  type="button"
+  onClick={() => {
+    if (!open) {
+      reachGoal('faq_open', { index });
+    }
+    setOpenIndex(open ? null : index);
+  }}
+  className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left sm:px-6"
+>
                 <div className="flex items-start gap-3">
                   <CircleHelp className="mt-1 h-5 w-5 shrink-0 text-cyan-300" />
                   <span className="text-base font-semibold text-white sm:text-lg">{q}</span>
@@ -1284,15 +1297,16 @@ function FounderCTA({
       </footer>
 
       <a
-        href={telegramUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-300 px-5 py-3 font-semibold text-black shadow-lg transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_0_35px_rgba(34,211,238,0.8)] sm:bottom-6 sm:right-6 sm:px-6 sm:py-3.5"
-      >
-        <MessageCircle className="h-4 w-4" />
-        <span className="hidden sm:inline">Обсудить внедрение</span>
-        <span className="sm:hidden">Написать</span>
-      </a>
+  href={telegramUrl}
+  target="_blank"
+  rel="noreferrer"
+  onClick={() => reachGoal('telegram_click', { place: 'floating_button' })}
+  className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-300 px-5 py-3 font-semibold text-black shadow-lg transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_0_35px_rgba(34,211,238,0.8)] sm:bottom-6 sm:right-6 sm:px-6 sm:py-3.5"
+>
+  <MessageCircle className="h-4 w-4" />
+  <span className="hidden sm:inline">Обсудить внедрение</span>
+  <span className="sm:hidden">Написать</span>
+</a>
     </>
   );
 }
@@ -1331,35 +1345,41 @@ export default function AIDvoynikLanding() {
     };
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const requestText = [
-      'Здравствуйте! Хочу обсудить пилотный запуск AI-двойника.',
-      '',
-      `Имя: ${formData.name || 'не указано'}`,
-      `Контакт: ${formData.contact || 'не указано'}`,
-      `О бизнесе: ${formData.request || 'не указано'}`,
-    ].join('\n');
+  reachGoal('form_submit', {
+    has_name: Boolean(formData.name),
+    has_contact: Boolean(formData.contact),
+    has_request: Boolean(formData.request),
+  });
 
-    try {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(requestText);
-        setSubmitHint(
-          'Текст заявки скопирован в буфер. Сейчас откроется Telegram — просто вставьте сообщение в диалог.'
-        );
-      } else {
-        setSubmitHint(
-          'Telegram откроется отдельно. Скопируйте текст заявки вручную, если буфер обмена недоступен.'
-        );
-      }
-    } catch {
+  const requestText = [
+    'Здравствуйте! Хочу обсудить пилотный запуск AI-двойника.',
+    '',
+    `Имя: ${formData.name || 'не указано'}`,
+    `Контакт: ${formData.contact || 'не указано'}`,
+    `О бизнесе: ${formData.request || 'не указано'}`,
+  ].join('\n');
+
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(requestText);
       setSubmitHint(
-        'Не удалось автоматически скопировать текст. Telegram откроется отдельно — текст можно вставить вручную.'
+        'Текст заявки скопирован в буфер. Сейчас откроется Telegram — просто вставьте сообщение в диалог.'
+      );
+    } else {
+      setSubmitHint(
+        'Telegram откроется отдельно. Скопируйте текст заявки вручную, если буфер обмена недоступен.'
       );
     }
+  } catch {
+    setSubmitHint(
+      'Не удалось автоматически скопировать текст. Telegram откроется отдельно — текст можно вставить вручную.'
+    );
+  }
 
-    window.open(founderTelegramUrl, '_blank', 'noopener,noreferrer');
-  };
+  window.open(founderTelegramUrl, '_blank', 'noopener,noreferrer');
+};
 
   return (
     <div
