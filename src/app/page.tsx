@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { reachGoal } from '@/lib/metrika';
+import { reachGoal } from '../lib/metrika';
 import {
   ArrowRight,
   BadgeAlert,
