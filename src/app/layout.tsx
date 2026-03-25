@@ -4,7 +4,32 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'AI-двойник предпринимателя',
-  description: 'AI-двойник предпринимателя',
+  description:
+    'AI-двойник предпринимателя для собственников, которым нужна системность в росте, рисках и прибыли.',
+  openGraph: {
+    title: 'AI-двойник предпринимателя',
+    description:
+      'Система для собственников, которым нужна системность в росте, рисках и прибыли.',
+    url: 'https://www.aidvoynik.ru',
+    siteName: 'AI-двойник предпринимателя',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'AI-двойник предпринимателя',
+      },
+    ],
+    locale: 'ru_RU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI-двойник предпринимателя',
+    description:
+      'Система для собственников, которым нужна системность в росте, рисках и прибыли.',
+    images: ['/og-image.jpg'],
+  },
 };
 
 const METRIKA_ID = 90522062;
