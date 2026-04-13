@@ -1312,8 +1312,7 @@ function FounderCTA({
 }
 
 export default function AIDvoynikLanding() {
-  const telegramBotUrl = 'https://t.me/ai_dvoynik_business_bot?start=site';
-  const founderTelegramUrl = 'https://t.me/MAXKOTELNIKOV';
+  const telegramUrl = 'https://t.me/MAXKOTELNIKOV';
 
   const navItems: NavItem[] = [
     { label: 'Как работает', href: '#how-it-works' },
@@ -1335,7 +1334,7 @@ export default function AIDvoynikLanding() {
   const [decisionErrors, setDecisionErrors] = React.useState(2);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [submitHint, setSubmitHint] = React.useState(
-    'После отправки текст заявки копируется в буфер, а Telegram открывается отдельно — так логика работает чище и стабильнее, чем через ?text= для бота.'
+    'После отправки текст заявки копируется в буфер, а Telegram открывается отдельно.'
   );
 
   const handleInputChange =
@@ -1345,41 +1344,41 @@ export default function AIDvoynikLanding() {
     };
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  reachGoal('form_submit', {
-    has_name: Boolean(formData.name),
-    has_contact: Boolean(formData.contact),
-    has_request: Boolean(formData.request),
-  });
+    reachGoal('form_submit', {
+      has_name: Boolean(formData.name),
+      has_contact: Boolean(formData.contact),
+      has_request: Boolean(formData.request),
+    });
 
-  const requestText = [
-    'Здравствуйте! Хочу обсудить пилотный запуск AI-двойника.',
-    '',
-    `Имя: ${formData.name || 'не указано'}`,
-    `Контакт: ${formData.contact || 'не указано'}`,
-    `О бизнесе: ${formData.request || 'не указано'}`,
-  ].join('\n');
+    const requestText = [
+      'Здравствуйте! Хочу обсудить пилотный запуск AI-двойника.',
+      '',
+      `Имя: ${formData.name || 'не указано'}`,
+      `Контакт: ${formData.contact || 'не указано'}`,
+      `О бизнесе: ${formData.request || 'не указано'}`,
+    ].join('\n');
 
-  try {
-    if (navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(requestText);
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(requestText);
+        setSubmitHint(
+          'Текст заявки скопирован в буфер. Сейчас откроется Telegram — просто вставьте сообщение в диалог.'
+        );
+      } else {
+        setSubmitHint(
+          'Telegram откроется отдельно. Скопируйте текст заявки вручную, если буфер обмена недоступен.'
+        );
+      }
+    } catch {
       setSubmitHint(
-        'Текст заявки скопирован в буфер. Сейчас откроется Telegram — просто вставьте сообщение в диалог.'
-      );
-    } else {
-      setSubmitHint(
-        'Telegram откроется отдельно. Скопируйте текст заявки вручную, если буфер обмена недоступен.'
+        'Не удалось автоматически скопировать текст. Telegram откроется отдельно — текст можно вставить вручную.'
       );
     }
-  } catch {
-    setSubmitHint(
-      'Не удалось автоматически скопировать текст. Telegram откроется отдельно — текст можно вставить вручную.'
-    );
-  }
 
-  window.open(founderTelegramUrl, '_blank', 'noopener,noreferrer');
-};
+    window.open(telegramUrl, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div
@@ -1387,7 +1386,7 @@ export default function AIDvoynikLanding() {
       className="min-h-screen overflow-x-hidden bg-[#070b1a] text-white selection:bg-cyan-400 selection:text-black"
     >
       <HeaderHero
-        telegramUrl={telegramBotUrl}
+        telegramUrl={telegramUrl}
         navItems={navItems}
         onOpenMenu={() => setMobileMenuOpen(true)}
       />
@@ -1396,7 +1395,7 @@ export default function AIDvoynikLanding() {
         open={mobileMenuOpen}
         setOpen={setMobileMenuOpen}
         navItems={navItems}
-        telegramUrl={telegramBotUrl}
+        telegramUrl={telegramUrl}
       />
 
       <ProofStrip />
@@ -1413,14 +1412,14 @@ export default function AIDvoynikLanding() {
       <CompareSection />
 
       <section id="packages">
-        <PricingSection telegramUrl={telegramBotUrl} />
+        <PricingSection telegramUrl={telegramUrl} />
       </section>
 
-      <CasesSection telegramUrl={telegramBotUrl} />
+      <CasesSection telegramUrl={telegramUrl} />
 
       <FounderCTA
-        telegramUrl={telegramBotUrl}
-        founderTelegramUrl={founderTelegramUrl}
+        telegramUrl={telegramUrl}
+        founderTelegramUrl={telegramUrl}
         formData={formData}
         handleInputChange={handleInputChange}
         handleFormSubmit={handleFormSubmit}
